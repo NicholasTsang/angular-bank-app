@@ -4,6 +4,7 @@
 
     var AccountController =  function(accountService, $log) {
         
+    	$log.log("Accountcontroller is created");
     	var vm = this;
         
         vm.isHidden = false;
@@ -14,7 +15,7 @@
         };
         
         function init() {
-        	accountService.getAccounts().then(function (results) {
+        	accountService.getAccounts().then(function (results) {// a if stat for  
            	vm.accounts = results;
            	$log.log("In the account controller the value of the result promise is ");
         	$log.log(JSON.stringify(vm.accounts));
