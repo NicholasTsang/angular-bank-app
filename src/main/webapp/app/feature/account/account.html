@@ -6,17 +6,92 @@
         	<h3><span>Accounts table</span></h3>
         	<table class="table">
         		<tr>
-        			<th>{{'first_name' | uppercase}}</th>
+        			<th>{{'first name' | uppercase}}</th>
         			<th>{{'surname' | uppercase}}</th>
         			<th>{{'account_number' | uppercase}}</th>
+        			<th>{{'account_options' | uppercase}}</th>
         		</tr>
         		<tr ng-repeat="account in accountCtrl.accounts">
         			<td>{{account.firstName}}</td>
         			<td>{{account.secondName}}</td>
         			<td>{{account.accountNumber}}</td>
+        			<td> <button class="btn" data-toggle="modal" data-target="#removeAccount" 
+        				ng-click = "accountCtrl.removeDetails(account)"> Remove Account </button> </td>
+        				
+        			<td> <button class="btn" data-toggle="modal" data-target="#updateAccount" 
+        				ng-click = "accountCtrl.updateDetails(account)"> Update Account </button> </td>
         		</tr>
         	</table>
         </div>
         <button class="btn" ng-click = "accountCtrl.hideTable()" >Hide accounts</button>
 	</div>
+	
+	<div class="modal fade" id="removeAccount" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Remove Account </h4>
+          </div>
+          <div class="modal-body" >
+            <div>
+            <p> Are you sure you want to delete the account for:</p>
+            	<div>
+            	<p> {{accountCtrl.removeFirstName}}</p>
+            	</div>
+            	<div>
+            	<p> {{accountCtrl.removeSecondName}}</p>
+            	</div>
+            	<div>
+            	<p> {{accountCtrl.removeAccountNumber}}</p>
+            	</div>
+            </div>
+            
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-lg" data-dismiss="modal" 
+          ng-click = "accountCtrl.removeAccount()">Remove Account</button>
+        </div>
+      </div>
+    </div>
+   </div>
+   
+    <div class="modal fade" id="updateAccount" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Remove Account </h4>
+          </div>
+          <div class="modal-body" >
+            <div>
+            <p> Enter new account details to update Account:</p>
+            <p> Enter current account details to maintain current Account:</p>
+            	<div>
+            	<label for="updateFirstName">First Name: {{accountCtrl.updateFirstName}}</label>
+            	<input type="text" class="form-control" id="updateFirstName" ng-model = "accountCtrl.updatedFirstName">
+            	</div>
+            	<div>
+            	<label for="updateSecondName">SurName: {{accountCtrl.updateSecondName}} </label>
+            	<input type="text" class="form-control" id="updateSecondName" ng-model = "accountCtrl.updatedSecondName">
+            	 	
+            	</div>
+            	<div>
+            	<label for="updateAccount">Account Number: {{accountCtrl.updateAccountNumber}} </label>
+            	<input type="text" class="form-control" id="updateAccountNumber" ng-model = "accountCtrl.updatedAccountNumber">
+            	 	
+            	</div>
+            </div>
+            
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-lg" data-dismiss="modal" 
+          ng-click = "accountCtrl.updateAccount()">Update Account</button>
+        </div>
+      </div>
+    </div>
+   </div>
+    
 </div>

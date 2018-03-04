@@ -12,9 +12,9 @@ public class Transaction {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
-	@Size(min = 2, max = 80)
+	@Size(min = 0, max = 80)
 	private String transactionName;
-	@Size(min = 2, max = 80)
+	@Size(min = 0, max = 80)
 	private String transactionNumber;
 
 	public Transaction() {

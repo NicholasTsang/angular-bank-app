@@ -1,0 +1,24 @@
+<div class="panel panel-default"
+	ng-controller="AddAccountController as addAccountCtrl">
+	<div class="panel-heading">Create Account</div>
+	<div class="panel-body">
+		{{addAccountCtrl.test}}
+		<h3>
+			<span>Create Accounts</span>
+		</h3>
+		<table class="table">
+			<tr>
+				<th><label for="firstName"> First name :</label> <input
+					type="text" class="form-control" id="firstName"
+					ng-model="addAccountCtrl.firstName"></th>
+				<th><label for="surName">Surname:</label> <input type="text"
+					class="form-control" id="surName" ng-model="addAccountCtrl.surName"></th>
+				<th><label for="AccNo">Account Number:</label> <input
+					type="text" class="form-control" id="AccNo"
+					ng-model="addAccountCtrl.accountNumber"></th>
+			</tr>
+
+		</table>
+	</div>
+	<button class="btn" ng-click="addAccountCtrl.submit()">Submit</button>
+</div>

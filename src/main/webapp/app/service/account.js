@@ -18,6 +18,17 @@
         	return accountDal.saveAccount(accountDetails);
         }
         
+        this.removeAccount = function(removeAccountDetails){
+        	$log.log("Accountservice removeAccount");
+        	console.log(removeAccountDetails);
+        	return accountDal.deleteAccount(removeAccountDetails);
+        }
+        
+        this.updateAccount = function(updateAccountDetails){
+        	$log.log("Accountservice updateAccount");
+        	console.log(updateAccountDetails);
+        	return accountDal.updateAccount(updateAccountDetails);
+        }
     }
     
     angular.module("accountApp").service("accountService", ['$log','accountDal', AccountService]);

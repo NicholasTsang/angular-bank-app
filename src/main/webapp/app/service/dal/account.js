@@ -15,11 +15,13 @@
         };
 
         this.updateAccount = function (accountToUpdate) {
-            return dal.http.PUT("rest/account/json/", accountToUpdate);
+        	$log.log("AccountDal update Account");
+            return dal.http.PUT("rest/account/json/" + accountToUpdate.id , accountToUpdate);
         };
 
-        this.deleteAccount = function (accountToDelete) {
-            return dal.http.DELETE("/rest/account/json/", accountToDelete);
+        this.deleteAccount = function (itemToDelete) {
+        	$log.log("AccountDal deleteAccount");
+            return dal.http.DELETE("rest/account/json/", itemToDelete);
         };
     }
     
